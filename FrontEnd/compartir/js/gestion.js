@@ -122,3 +122,4 @@ function completarFormulario(element) {
   document.getElementById("txt_email").value = element.email;
   document.getElementById("txt_celular").value = element.celular;
 }
+en el apartado de gestionar hay un mensaje qe dice que un cliente no se puede eliminar, con budstrap hay que hacer que diga ese mensaje pero bonito
