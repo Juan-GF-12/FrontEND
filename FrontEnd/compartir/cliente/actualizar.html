@@ -1,58 +1,86 @@
-<html>
-    <head>
-        <title>Actualizar Cliente</title>
-        <script src="../js/cliente.js"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-    </head>
-    <body onload="obtenerIdActualizacion();">
-        <div class="container"> 
-            <h1>Actualizar cliente</h1>
-            <div class="alert alert-prymary" role="alert">
-                Complete los datos que requiera modificar.
-            </div>
-            
-            <div>
-                <form>
-                    <div class="mb-3">
-                    <label for="txt_id_cliente" class="form-label">RUT</label>
-                    <input type="number" class="form-control" id="txt_id_cliente" aria-describedby="txt_id_cliente_Help" readonly>
-                    <div id="txt_id_cliente_Help" class="form-text">RUT sin digito verificador.</div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="txt_dv" class="form-label">DV</label>
-                        <input type="text" class="form-control" id="txt_dv" aria-describedby="txt_dv_Help" readonly>
-                        <div id="txt_dv_Help" class="form-text">Digito verificador.</div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="txt_nombres" class="form-label">Nombres</label>
-                        <input type="text" class="form-control" id="txt_nombres" aria-describedby="txt_nombres_Help">
-                        <div id="txt_nombres_Help" class="form-text">Nombres del cliente.</div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="txt_apellidos" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" id="txt_apellidos" aria-describedby="txt_apellidos_Help">
-                        <div id="txt_apellidos_Help" class="form-text">Apellidos del cliente.</div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="txt_email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="txt_email" aria-describedby="txt_email_Help">
-                        <div id="txt_email_Help" class="form-text">Email del cliente.</div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="txt_celular" class="form-label">Celular</label>
-                        <input type="number" class="form-control" id="txt_celular" aria-describedby="txt_celular_Help">
-                        <div id="txt_celular_Help" class="form-text">Celular del cliente.</div>
-                    </div>
-
-                    <input type = "button" class="btn btn-primary" value="Actualizar cliente" onclick="actualizarCliente();">
-                    <input type = "button" class="btn btn-warning" value="Cancelar" onclick="javascript:history.back();">
-                </form>
-         </div>
-    </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Actualizar Cliente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="./js/cliente.js"></script>
+  <style>
+    body {
+      background: linear-gradient(120deg, #d6a81e, #eec230);
+      font-family: 'Quicksand', sans-serif;
+    }
+    .form-container {
+      max-width: 500px;
+      margin: 6vh auto;
+      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.0); /* fondo completamente transparente */
+      backdrop-filter: blur(2px);
+    }
+    .form-floating .form-control {
+      background-color: transparent;
+      border: 0;
+      border-bottom: 2px solid #ccc;
+      border-radius: 0;
+    }
+    .form-control:focus {
+      box-shadow: none;
+      border-bottom: 2px solid #007bff;
+    }
+    label {
+      color: #333;
+    }
+    .form-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #000000;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 1rem;
+      border-radius: 15px;
+      text-align: center;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(1px);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body onload="obtenerIdActualizacion();">
+  <div class="form-container">
+    <div class="form-title">Actualizar Cliente</div>
+    <form>
+      <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="txt_id_cliente" placeholder="RUT" readonly>
+        <label for="txt_id_cliente">RUT</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="txt_dv" placeholder="DV" readonly>
+        <label for="txt_dv">DV</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="txt_nombres" placeholder="Nombres">
+        <label for="txt_nombres">Nombres</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="txt_apellidos" placeholder="Apellidos">
+        <label for="txt_apellidos">Apellidos</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="txt_email" placeholder="Email">
+        <label for="txt_email">Email</label>
+      </div>
+      <div class="form-floating mb-4">
+        <input type="number" class="form-control" id="txt_celular" placeholder="Celular">
+        <label for="txt_celular">Celular</label>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-success px-4" onclick="actualizarCliente();">Actualizar</button>
+        <button type="button" class="btn btn-outline-dark px-4" onclick="history.back();">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</body>
 </html>
